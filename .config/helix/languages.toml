@@ -1,0 +1,49 @@
+# Helix languages.toml configuration for Nextflow
+# This file only configures Nextflow - all other languages use Helix's built-in defaults
+
+# =============================================================================
+# NEXTFLOW LANGUAGE SERVER
+# =============================================================================
+
+[language-server.nextflow-language-server]
+command = "nextflow-language-server"
+
+# Nextflow language server configuration options
+[language-server.nextflow-language-server.config.nextflow]
+debug = false
+
+[language-server.nextflow-language-server.config.nextflow.files]
+exclude = [".git", ".nf-test", "work"]
+
+[language-server.nextflow-language-server.config.nextflow.formatting]
+harshilAlignment = true
+
+# =============================================================================
+# NEXTFLOW LANGUAGE CONFIGURATION
+# =============================================================================
+
+[[language]]
+name = "nextflow"
+scope = "source.nextflow"
+language-id = "nextflow"
+file-types = ["nf", "nf.test", { glob = "nextflow.config" }]
+grammar = "groovy"
+indent = { tab-width = 2, unit = "  " }
+auto-format = false
+language-servers = ["nextflow-language-server"]
+
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+
+[[language]]
+name = "bash"
+language-servers = ["bash-language-server"]
+
+[[language]]
+name = "r"
+language-servers = ["r"]
