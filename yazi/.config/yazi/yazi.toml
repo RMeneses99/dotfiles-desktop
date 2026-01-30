@@ -1,22 +1,24 @@
 [opener]
-edit = [
+Helix = [
   { run = "hx %s",block = true, desc = "Open"},
 ]
 
 [open]
 rules = [
-  { url = "*.rmd", use = "edit" },
-  { url = "*.yml", use = "edit" },
-  { url = "*.yaml", use = "edit" },
-  { url = "*.conf", use = "edit" },
-  { url = "*.config", use = "edit" },
-  { url = "*.toml", use = "edit" },
-  { mime = "text/*", use = "edit" },
+  { mime = "text/*", use = "Helix" },
+  { mime = "inode/x-empty", use = "Helix" },
+  { url = "*.rmd", use = "Helix" },
+  { url = "*.yml", use = "Helix" },
+  { url = "*.yaml", use = "Helix" },
+  { url = "*.conf", use = "Helix" },
+  { url = "*.config", use = "Helix" },
+  { url = "*.toml", use = "Helix" },
+  { url = "*.nf", use = "Helix" },
   { mime = "video/*", use = "open" },
   { mime = "image/*", use = "open" },
   { mime = "application/pdf", use = "open" },
+  # Catch-all rules should be LAST
   { url = "*", use = "open" },
-  { url = ".*", use = "open" },
 ]
 
 [manager]
